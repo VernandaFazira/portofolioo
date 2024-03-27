@@ -19,7 +19,7 @@ app = Flask(__name__)
 def home():
    return render_template('index.html')
 
-@app.route("/mars", methods=["POST"])
+@app.route("/portofolio", methods=["POST"])
 def web_mars_post():
     # sample_receive = request.form['sample_give']
     name_receive = request.form['name_give']
@@ -33,7 +33,7 @@ def web_mars_post():
     db.orders.insert_one(doc)
     return jsonify({'msg': 'complete!'})
 
-@app.route("/mars", methods=["GET"])
+@app.route("/portofolio", methods=["GET"])
 def web_mars_get():
     orders_list = list(db.orders.find({}, {'_id': False}))
     return jsonify({'orders': orders_list})
